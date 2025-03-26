@@ -26,4 +26,4 @@ target-version = "py310"
 
 
 [tool.setuptools]
-packages = ["tools", "prompts", "resources"]
+packages = [".", "tools", "prompts", "resources"]

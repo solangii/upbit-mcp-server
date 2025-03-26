@@ -1,0 +1,16 @@
+config_version: 1
+app:
+  name: upbit-mcp-server
+  type: other
+  env:
+    - name: UPBIT_ACCESS_KEY
+      value: ""
+    - name: UPBIT_SECRET_KEY
+      value: ""
+  ports:
+    - port: 8000
+      as: 80
+  build:
+    dockerfile: Dockerfile
+  run:
+    cmd: ["python", "main.py"]
