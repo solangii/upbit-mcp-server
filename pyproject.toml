@@ -1,0 +1,25 @@
+[project]
+name = "upbit-mcp-server"
+version = "0.1.0"
+description = "A FastMCP server for Upbit public API with private API support"
+authors = [{ name = "Solang Kim", email = "solangii1229@gmail.com" }]
+readme = "README.md"
+dependencies = [
+    "fastmcp>=0.1.8",
+    "httpx>=0.27.0",
+    "pyjwt",
+    "python-dotenv",
+    "numpy"
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
