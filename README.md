@@ -1,6 +1,6 @@
 # Upbit MCP Server
 
-A server implementation for Upbit Cryptocurrency Exchange OpenAPI using the Model Context Protocol (MCP). This project provides tools to interact with Upbit exchange services, such as retrieving market data (quotes, orderbooks, trade history, chart data), account information, creating and canceling orders, managing deposits/withdrawals, and performing technical analysis.
+A server implementation for [Upbit](https://upbit.com) Cryptocurrency Exchange OpenAPI using the Model Context Protocol (MCP). This project provides tools to interact with Upbit exchange services, such as retrieving market data (quotes, orderbooks, trade history, chart data), account information, creating and canceling orders, managing deposits/withdrawals, and performing technical analysis.
 
 ## Features
 
@@ -15,10 +15,10 @@ A server implementation for Upbit Cryptocurrency Exchange OpenAPI using the Mode
 Before you begin, you need to get your Upbit API keys:
 
 1. Create an account on [Upbit](https://upbit.com) if you don't already have one
-2. Go to the [Upbit Developer Center](https://upbit.com/developer)
+2. Go to the [Upbit Developer Center](https://upbit.com/service_center/open_api_guide)
 3. Create a new API key
 4. Make sure to set appropriate permissions (read, trade, withdraw as needed)
-5. Store your API keys in the `.env` file (see Installation section)
+5. Store your API keys(`UPBIT_ACCESS_KEY`, `UPBIT_SECRET_KEY`) in the `.env` file (see Installation section)
 
 ## Installation
 
