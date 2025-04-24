@@ -13,7 +13,7 @@ def analyze_portfolio(account_data: list[dict]) -> str:
             portfolio_summary += f"- {asset['currency']}: {asset['balance']} 개 보유 (평균 매수가: {asset.get('avg_buy_price', '정보 없음')} KRW)\n"
     
     return f"""
-    🏦 업비트 포트폴리오 분석
+    업비트 포트폴리오 분석
     
     현재 KRW 잔액: {total_krw:,.0f} 원
     
