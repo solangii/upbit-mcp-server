@@ -73,11 +73,14 @@ fastmcp install main.py --name "Upbit API"
 
 You can add the MCP server directly to Claude's configuration file:
 
-1. Locate or create Claude's config file:
-   - macOS/Linux: `~/.anthropic/config.json`
-   - Windows: `C:\Users\{username}\.anthropic\config.json`
+1. Install [Claude Desktop](https://claude.ai/download)
 
-2. Add the following configuration (adjust paths as needed):
+2. Add the following to your Claude Desktop configuration:
+
+   - macOS: ``~/Library/Application Support/Claude/claude_desktop_config.json`
+   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+3. Add the following configuration (adjust paths as needed):
    ```json
    {
      "mcpServers": {
@@ -95,7 +98,7 @@ You can add the MCP server directly to Claude's configuration file:
    }
    ```
 
-3. Restart Claude to load the new configuration.
+4. Restart Claude to load the new configuration.
 
 ### Deploy with Smithery.ai
 
