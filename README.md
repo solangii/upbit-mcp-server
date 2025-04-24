@@ -24,7 +24,7 @@ Before you begin, you need to get your Upbit API keys:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/upbit-mcp-server.git
+   git clone https://github.com/solangii/upbit-mcp-server.git
    cd upbit-mcp-server
    ```
 
@@ -63,9 +63,45 @@ fastmcp dev main.py
 
 ### Install in Claude Desktop
 
+#### Option 1: Using fastmcp
+
 ```bash
 fastmcp install main.py --name "Upbit API"
 ```
+
+#### Option 2: Using Claude config file (Direct integration)
+
+You can add the MCP server directly to Claude's configuration file:
+
+1. Locate or create Claude's config file:
+   - macOS/Linux: `~/.anthropic/config.json`
+   - Windows: `C:\Users\{username}\.anthropic\config.json`
+
+2. Add the following configuration (adjust paths as needed):
+   ```json
+   {
+     "mcpServers": {
+       "upbit-mcp-server": {
+         "command": "python",
+         "args": [
+           "/full/path/to/upbit-mcp-server/main.py"
+         ],
+         "env": {
+           "UPBIT_ACCESS_KEY": "your_access_key_here",
+           "UPBIT_SECRET_KEY": "your_secret_key_here"
+         }
+       }
+     }
+   }
+   ```
+
+3. Restart Claude to load the new configuration.
+
+### Deploy with Smithery.ai
+
+1. Ensure your repository has both the `Dockerfile` and `smithery.yaml` files.
+2. Visit [Smithery.ai](https://smithery.ai) and follow the instructions to deploy your MCP server.
+3. Once deployed, you can add the server to Claude using the provided URL.
 
 ### Run Directly with Python
 
