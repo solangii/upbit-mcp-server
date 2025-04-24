@@ -10,6 +10,44 @@ A server implementation for [Upbit](https://upbit.com) Cryptocurrency Exchange O
 - Deposit and withdrawal functions
 - Technical analysis tools
 
+<details>
+  <summary><strong>수행가능한 기능 목록</strong></summary>
+  <br/>
+
+  <h4>시장 데이터 조회</h4>
+  <ul>
+    <li>현재 암호화폐 시세 조회 (<code>get_ticker</code>)</li>
+    <li>호가창 정보 조회 (<code>get_orderbook</code>)</li>
+    <li>최근 체결 내역 조회 (<code>get_trades</code>)</li>
+    <li>주요 암호화폐 시장 요약 정보 확인 (<code>get_market_summary</code>)</li>
+  </ul>
+
+  <h4>계정 정보 조회</h4>
+  <ul>
+    <li>보유 중인 자산 목록 및 잔고 확인 (<code>get_accounts</code>)</li>
+    <li>주문 내역 조회 (<code>get_orders</code>)</li>
+    <li>특정 주문 상세 정보 조회 (<code>get_order</code>)</li>
+    <li>입출금 내역 조회 (<code>get_deposits_withdrawals</code>)</li>
+  </ul>
+
+  <h4>거래 기능</h4>
+  <ul>
+    <li>지정가/시장가 매수 주문 생성 (<code>create_order</code>)</li>
+    <li>지정가/시장가 매도 주문 생성 (<code>create_order</code>)</li>
+    <li>주문 취소 (<code>cancel_order</code>)</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>채팅 예시</strong></summary>
+  <br/>
+  <p>
+    아래는 실제 채팅 예시 이미지입니다.
+  </p>
+  <img src="./assets/img1.png" alt="example1" width="600"/>
+    <img src="./assets/img2.png" alt="example2" width="600"/>
+</details>
+
 ## Prerequisites
 
 Before you begin, you need to get your Upbit API keys:
