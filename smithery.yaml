@@ -1,16 +1,25 @@
-config_version: 1
-app:
-  name: upbit-mcp-server
-  type: service
-  build:
-    dockerfile: Dockerfile
-  run:
-    command: ["python", "main.py"]
-  env:
-    - name: UPBIT_ACCESS_KEY
-      value: ""
-    - name: UPBIT_SECRET_KEY
-      value: ""
-  ports:
-    - port: 8000
-      as: 80
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      UPBIT_ACCESS_KEY:
+        type: string
+        description: Upbit API access key
+      UPBIT_SECRET_KEY:
+        type: string
+        description: Upbit API secret key
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: "python",
+      args: [
+        "main.py"
+      ],
+      env: {
+        UPBIT_ACCESS_KEY: config.UPBIT_ACCESS_KEY || "",
+        UPBIT_SECRET_KEY: config.UPBIT_SECRET_KEY || ""
+      }
+    })
