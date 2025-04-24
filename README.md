@@ -68,20 +68,20 @@ Before you begin, you need to get your Upbit API keys:
 
 2. Install dependencies:
    ```bash
-   # Using pip
-   pip install -e .
-   
-   # Or using uv (recommended)
    uv pip install -e .
    ```
+   
+   If you don't have `uv` installed yet, you can install it as follows:
+   
+   Using `uv` provides faster installation and more reliable dependency resolution.
 
-   Using uv provides faster installation and more reliable dependency resolution. To install uv:
    ```bash
    # Install uv
-   curl -fsSL https://install.ultramarine.tools | sh
+   curl -Ls https://astral.sh/uv/install.sh | sh
    
-   # Or install with pip
-   pip install uv
+    # Add uv to your PATH
+   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+   source ~/.zshrc  # or bashrc, depending on your shell
    ```
 
 3. Set up environment variables:
@@ -93,21 +93,9 @@ Before you begin, you need to get your Upbit API keys:
 
 ## Usage
 
-### Development Mode (Web Interface)
-
-```bash
-fastmcp dev main.py
-```
-
 ### Install in Claude Desktop
 
-#### Option 1: Using fastmcp
-
-```bash
-fastmcp install main.py --name "Upbit API"
-```
-
-#### Option 2: Using Claude config file (Direct integration)
+#### Option 1: Using Claude config file (Direct integration)
 
 You can add the MCP server directly to Claude's configuration file:
 
@@ -123,41 +111,39 @@ You can add the MCP server directly to Claude's configuration file:
    {
      "mcpServers": {
        "upbit-mcp-server": {
-         "command": "python",
+         "command": "/full/path/to/upbit-mcp-server/.venv/bin/python",
          "args": [
            "/full/path/to/upbit-mcp-server/main.py"
-         ],
-         "env": {
-           "UPBIT_ACCESS_KEY": "your_access_key_here",
-           "UPBIT_SECRET_KEY": "your_secret_key_here"
-         }
+         ]
        }
      }
    }
    ```
-
+   
 4. Restart Claude to load the new configuration.
 
-### Deploy with Smithery.ai
+#### Option 2: Using fastmcp
 
-1. Ensure your repository has both the `Dockerfile` and `smithery.yaml` files.
-2. Visit [Smithery.ai](https://smithery.ai) and follow the instructions to deploy your MCP server.
-3. Once deployed, you can add the server to Claude using the provided URL.
+```bash
+fastmcp install main.py --name "Upbit API"
+```
 
 ### Run Directly with Python
 
 ```bash
-python main.py
-
-# Or using uv
 uv run python main.py
+```
+
+### Development Mode (Web Interface)
+
+```bash
+fastmcp dev main.py
 ```
 
 ## Caution
 
 - This server can process real trades, so use it carefully.
 - Keep your API keys secure and never commit them to public repositories.
-- Thoroughly test before using in production environments.
 
 ## License
 
