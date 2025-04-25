@@ -10,16 +10,23 @@ startCommand:
       UPBIT_SECRET_KEY:
         type: string
         description: Upbit API secret key
+    required: ["UPBIT_ACCESS_KEY", "UPBIT_SECRET_KEY"]
   commandFunction:
     # A function that produces the CLI command to start the MCP on stdio.
     |-
-    (config) => ({
-      command: "python",
-      args: [
-        "main.py"
-      ],
-      env: {
-        UPBIT_ACCESS_KEY: config.UPBIT_ACCESS_KEY || "",
-        UPBIT_SECRET_KEY: config.UPBIT_SECRET_KEY || ""
+    (config) => {
+      if (!config.UPBIT_ACCESS_KEY || !config.UPBIT_SECRET_KEY) {
+        throw new Error("Upbit API keys are required");
       }
-    })
+      
+      return {
+        command: "python",
+        args: [
+          "main.py"
+        ],
+        env: {
+          UPBIT_ACCESS_KEY: config.UPBIT_ACCESS_KEY,
+          UPBIT_SECRET_KEY: config.UPBIT_SECRET_KEY
+        }
+      };
+    }
