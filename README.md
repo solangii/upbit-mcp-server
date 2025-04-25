@@ -68,7 +68,8 @@ Before you begin, you need to get your Upbit API keys:
 
 2. Install dependencies:
    ```bash
-   uv pip install -e .
+   cd upbit-mcp-server
+   uv sync
    ```
    
    If you don't have `uv` installed yet, you can install it as follows:
